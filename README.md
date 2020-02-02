@@ -1,5 +1,6 @@
 # Scientific-Calculator
 "Work in Progress"
+
+JavaScript
 HTML
-CSS
-JavaScript will be used
+CSS will be used
