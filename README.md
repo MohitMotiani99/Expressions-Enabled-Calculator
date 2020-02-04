@@ -3,4 +3,4 @@
 
 JavaScript
 HTML
-CSS will be used
+CSS
