@@ -2,11 +2,57 @@
 <html>
 <head>
 	<title>Scientific Calculator</title>
+	<script src="app.js"></script>
 </head>
 <body style="background-color: black;">
-	<form method="get">
-		<input type="text" name="exp" value="" style="height: 100px;width: 1366px;padding: none;border: none;position: absolute;top: 0px;left: 0px;font-size: 60px;text-align: right;background-color: yellow">
+	<form>
+		<input id="inp" type="text" name="exp" value="" style="height: 100px;width: 1366px;padding: none;border: none;position: absolute;top: 0px;left: 0px;font-size: 60px;text-align: right;background-color: yellow">
 	</form>
-	<button type="button" onclick="" style="height: 80px;width: 100px;padding: none;border: none;position: absolute;top: 102px;left: 0px;text-align: center;background-color: grey;font-size: 40px;">sin</button>
+	<button id="sin" type="button" onclick="sin()" style="height: 100px;width: 150px;position: absolute;top: 102px;left: 0px;text-align: center;background-color: grey;font-size: 40px;">sin</button>
+	<button id="cos" type="button" onclick="cos()" style="height: 100px;width: 150px;position: absolute;top: 102px;left: 150px;text-align: center;background-color: grey;font-size: 40px;">cos</button>
+	<button id="tan" type="button" onclick="tan()" style="height: 100px;width: 150px;position: absolute;top: 102px;left: 300px;text-align: center;background-color: grey;font-size: 40px;">tan</button>
+	<button id="log" type="button" onclick="log()" style="height: 100px;width: 150px;position: absolute;top: 102px;left: 450px;text-align: center;background-color: grey;font-size: 40px;">log</button>
+	<button id="C" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 102px;left: 600px;text-align: center;background-color: grey;font-size: 40px;">C</button>
+	<button id="del" type="button" onclick="fun(this)" style="height: 100px;width: 300px;position: absolute;top: 102px;left: 750px;text-align: center;background-color: grey;font-size: 40px;">Del</button>
+	<button id="div" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 102px;left: 1050px;text-align: center;background-color: red;font-size: 40px;">/</button>
+
+
+	<button id="inv" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 202px;left: 0px;text-align: center;background-color: grey;font-size: 40px;">1/x</button>
+	<button id="sqr" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 202px;left: 150px;text-align: center;background-color: grey;font-size: 40px;">x<sup style="font-size: 20px;">2</sup></button>
+	<button id="cube" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 202px;left: 300px;text-align: center;background-color: grey;font-size: 40px;">x<sup style="font-size: 20px;">3</sup></button>
+	<button id="pow" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 202px;left: 450px;text-align: center;background-color: grey;font-size: 40px;">x<sup style="font-size: 20px;">y</sup></button>
+	<button id="7" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 202px;left: 600px;text-align: center;background-color: grey;font-size: 40px;">7</button>
+	<button id="8" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 202px;left: 750px;text-align: center;background-color: grey;font-size: 40px;">8</button>
+	<button id="9" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 202px;left: 900px;text-align: center;background-color: grey;font-size: 40px;">9</button>
+	<button id="mul" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 202px;left: 1050px;text-align: center;background-color: red;font-size: 40px;">*</button>
+
+
+
+	<button id="abs" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 303px;left: 0px;text-align: center;background-color: grey;font-size: 40px;">|x|</button>
+	<button id="fact" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 303px;left: 150px;text-align: center;background-color: grey;font-size: 40px;">x!</button>
+	<button id="sqrt" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 303px;left: 300px;text-align: center;background-color: grey;font-size: 40px;">x<sup style="font-size: 20px;">1/2</sup></button>
+	<button id="root" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 303px;left: 450px;text-align: center;background-color: grey;font-size: 40px;">x<sup style="font-size: 20px;">1/y</sup></button>
+	<button id="4" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 303px;left: 600px;text-align: center;background-color: grey;font-size: 40px;">4</button>
+	<button id="5" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 303px;left: 750px;text-align: center;background-color: grey;font-size: 40px;">5</button>
+	<button id="6" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 303px;left: 900px;text-align: center;background-color: grey;font-size: 40px;">6</button>
+	<button id="sub" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 303px;left: 1050px;text-align: center;background-color: red;font-size: 40px;">-</button>
+
+
+
+	<button id="pi" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 404px;left: 0px;text-align: center;background-color: grey;font-size: 40px;">Pi</button>
+	<button id="e" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 404px;left: 150px;text-align: center;background-color: grey;font-size: 40px;">e</button>
+	<button id="exp" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 404px;left: 300px;text-align: center;background-color: grey;font-size: 40px;">e<sup style="font-size: 20px;">x</sup></button>
+	<button id="ln" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 404px;left: 450px;text-align: center;background-color: grey;font-size: 40px;">ln</button>
+	<button id="1" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 404px;left: 600px;text-align: center;background-color: grey;font-size: 40px;">1</button>
+	<button id="2" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 404px;left: 750px;text-align: center;background-color: grey;font-size: 40px;">2</button>
+	<button id="3" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 404px;left: 900px;text-align: center;background-color: grey;font-size: 40px;">3</button>
+	<button id="add" type="button" onclick="fun(this)" style="height: 100px;width: 150px;position: absolute;top: 404px;left: 1050px;text-align: center;background-color: red;font-size: 40px;">+</button>
+
+
+	<button id="(" type="button" onclick="fun(this)" style="height: 100px;width: 300px;position: absolute;top: 505px;left: 0px;text-align: center;background-color: grey;font-size: 40px;">(</button>
+	<button id=")" type="button" onclick="fun(this)" style="height: 100px;width: 300px;position: absolute;top: 505px;left: 300px;text-align: center;background-color: grey;font-size: 40px;">)</button>
+	<button id="0" type="button" onclick="fun(this)" style="height: 100px;width: 300px;position: absolute;top: 505px;left: 600px;text-align: center;background-color: grey;font-size: 40px;">0</button>
+	<button id="=" type="button" onclick="result()" style="height: 100px;width: 300px;position: absolute;top: 505px;left: 900px;text-align: center;background-color: red;font-size: 40px;">=</button>
+
 </body>
 </html>
